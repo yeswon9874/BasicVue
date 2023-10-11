@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id ="app">
+        {{ nextYear('안녕') }}
+        <input :type="type" :value="inputData">
+        <br/>
+        <a :href="getGithubLink('yeswon9874/BasicVue')">임예원 깃허브 주소</a>
+        <br/><br/>
+        {{ year }}
+        <button v-on:click="plus">더하기</button>
+        <button v-on:click="minus">빼기</button>
+    </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    person: {
+                        name: '임예원',
+                        age: 25
+                    },
+                    inputData: 'yeah',
+                    type: 'string',
+                    link: 'https://github.com/',
+                    year: 2018
+                },
+                methods: {
+                    getGithubLink(channel) {
+                        return this.link + channel;
+                    },
+                    nextYear(greeting) {
+                        return greeting + '! ' + this.person.name + '은 내년에 ' + ( this.person.age + 1) + '살 입니다';
+                    },
+                    otherMethod() {
+                        this.nextYear();
+                    },
+                    alert() {
+                        alert('hi yewon')
+                    },
+                    plus() {
+                        this.year++;
+                    },
+                    minus() {
+                        this.year--;
+                    }
+                }
+            })
+        </script>
+</body>
+</html>
