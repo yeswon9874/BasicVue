@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id ="app">
+        {{ message }} <br>
+        <button @click="changeMessage">Click</button><br>
+        {{ updated }}
+    </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    message: 'Hello',
+                    updated: '아니오'
+                },
+                methods: {
+                    // 함수 사용시 괄호
+                    reversedMessage() {
+                        return this.message.split('').reverse().join('');
+                    },
+                    changeMessage() {
+                        this.message = '임예원';
+                    }
+                },
+                computed: {
+                    // computed 사용시 괄호 필요 없음
+                    // reversedMessage() {
+                    //     return this.message.split('').reverse().join('');
+                    // }
+                },
+                watch: {
+                    message(newVal, oldVal) {
+                        console.log(newVal, oldVal)
+                        this.updated = '네';
+                    }
+                }
+            })
+        </script>
+</body>
+</html>
