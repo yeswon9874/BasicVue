@@ -16,6 +16,12 @@
         {{ year }}
         <button v-on:click="plus">더하기</button>
         <button v-on:click="minus">빼기</button>
+        <br><br>
+        <!-- prevent: reload 중지 시키기 -->
+        <form v-on:submit.prevent="submit">
+            <input type="text"><br>
+            <button type="submit">Submit</button>
+        </form>
     </div>
         <script>
             new Vue({
@@ -48,6 +54,10 @@
                     },
                     minus() {
                         this.year--;
+                    },
+                    submit() {
+                        alert('submitted');
+                        console.log("hello");
                     }
                 }
             })
