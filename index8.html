@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id ="app">
+        {{ name }}<br>
+        <button @click="chanageText">Click</button>
+    </div>
+    <div id ="app-1">
+        {{ name }}<br>
+        <button @click="chanageText">Click</button>
+    </div>
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data: {
+                    name: 'yewon'
+                },
+                methods: {
+                    chanageText() {
+                        app1.name = 'yewon updated'
+                    }
+                },
+                
+            })
+
+            const app1 = new Vue({
+                el: '#app-1',
+                data: {
+                    name: 'yewon_1'
+                },
+                methods: {
+                    chanageText() {
+                        app.name = 'yewon1 updated'
+                    }
+                },
+                
+            })
+        </script>
+</body>
+</html>
