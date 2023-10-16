@@ -7,11 +7,8 @@
 <script>
 export default {
     computed: {
-        // todos() {
-        //     return this.$store.state.todos;
-        // },
         numberOfCompletedTodo() {
-            return this.$store.getters.numberOfCompletedTodo;
+            return this.$store.getters['todo/numberOfCompletedTodo'];
         }
     }
 }
